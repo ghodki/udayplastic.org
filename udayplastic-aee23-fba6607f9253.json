@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "udayplastic-aee23",
+  "private_key_id": "fba6607f925309a0c1fec82a267025406831c6d2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDCIat1RTzXYfm4\nEp+p8UZA5B2J3kh1O3eIf7P4TOEPrW3ibO8UhsvpTRgJie8FftAIcL5HEyeeduHk\nU+P/ZVoQlJdOyBDXzffo+AHCR8PexTZvxyz+jJIAX8WwybaiLlXQqx1lKQvDR1xu\nadXhD151PjpQkXPGakLqO4OCa8NBTEPU8sIwzsFZKg7GETfbgf1/K692VZRlVVmK\nhYC9GROciGEjzt5zTpK6UF1DRuinzMtMe1ftMbsIIUb0n2+rYJthskHZeamCqFHk\nqjd0jeVFmM6PNH7of9aFA20xpVpRrs2L68oMbeuxMxrYeTs5dL+AfS67ta7g6Rw0\npDsoL5XtAgMBAAECggEABw4nZ60RgTGYj5EI6BAFu2jO9Gpb4pU7sReuPorrIjrt\nigbnFXoX23qN/uLAouF9+NPBucS/chBKzpW7holBCBmhk7jMeLT0NC2EDgyC2NjJ\nmeLFbUB5ZrWt8jcSge7PKmgQ1GyOdq792mFsTX0I5zGD99bUooeZt17CvWQVn4zW\nztG1nnQkk5dah8VZyz0hO2QRJUWoXVlTAlogA5Aq2U3znViwrNzeRkg+LcLCAGTn\nAR+phYbQyx6ls1ho9HaWEvb5IbloCJ4/JsENj3PaQbmR5GAKSBzI3XFSXqPz/awN\nfXvx8wUjUXrrL/nwtcZN7vRb0RXzAQ5gKmyb/GRcfQKBgQDfXVC7zhGiIj1dL79N\n+mlSV5XJd3W//0KzO2ISMsYsVpJO/6wdw2ibtH6x0cMfaWhyn9eSUo+F9fA/SOUo\niTqYvAAVFirxuXbkCjIyajkOdHddo5muR4qXnmmUZlG3P3o2evrNUkY6/qDkMF4r\nywu/NkfwRcEQhCwGXcSDogP8hwKBgQDefu3WpXIusvHL+Kg0JnkodyIEuG4yL8N2\nK60vHdrz10bG3zULMtEvSLP6CJ6TGX46Z5uZMZv14PXkLl7dV40+FwUIbHKJDNrd\n2Wo/7dNrW+3/nnYt1400r+TpKDMAjleXGC6MlZ+U/J9BKH1akfasBJJIhCsUp/Td\nsN78I+qK6wKBgQCXFT5rmepRecl6A7bpnsyotreJa3VJJfbO1wbx+kgTa4dRShz4\nkNlsIH1l99V8pMbSaY3d2lxcJ0uW8s6WSaRJ9Tg1CyaHFIT3oHHtqe3n+h1XSDbG\nLHvxLGSLzV3OjnAy86I7SUBZ3SukzZaVFqVec+/a9MOvUUeaEsi+pNL/dwKBgBJj\nGvSqJ42EbEcW/Y+RvmGBtuX8995d5CFX6rACH54XJFo7B/8s6+ykbXs0SyaM7MmW\n1l0KpIDlXmzFCEHyglGnRVs02yJIVa4P0aAG33n31utRBSM0tQ6tmpVKJSzelo5+\nCRrFIrMFTYPs/K8HcQM2PYCQq57BYpMPkt3zeeaRAoGAZ/4uJWszrM6EkfEp0vys\nTk8b9VGdkwlqwMRQtQRjQ6/Bey0SoXOtfs6I44L69ekNOs22OBeAB+a/JOrPhAea\nlTsh6X8YX7eccoYVKzZ5OKI+gvY5RihqGcxNMdNOOJIVesMm39Nb/B1MbEoqJm6b\nJueBbnVSk4vyx4ArQBz5NVI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-cvy7w@udayplastic-aee23.iam.gserviceaccount.com",
+  "client_id": "103061742715304955257",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-cvy7w%40udayplastic-aee23.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

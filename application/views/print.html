@@ -1,0 +1,736 @@
+<style>
+    @font-face {
+        font-family: 'ArialMt';
+        src: url('../assets/fonts/Arial MT.ttf') format("truetype");
+    }
+
+    @font-face {
+        font-family: 'ArialMt Bold';
+        src: url('../assets/fonts/arial-mt-bold.ttf') format("truetype");
+    }
+
+    body {
+        font-family: ArialMt;
+        margin: 0px;
+        font-size: 12px;
+    }
+
+    .main_container {
+        page-break-after: always;
+        margin: auto;
+    }
+
+    table {
+        border-spacing: 0;
+    }
+
+    thead {
+        display: table-header-group !important;
+    }
+
+    tfoot {
+        display: table-row-group !important;
+    }
+
+    tr {
+        page-break-inside: avoid !important;
+    }
+
+    .copy_title {
+        font-size: 10px;
+        text-align: right;
+    }
+
+    .hidden_head th {
+        border: 0px !important;
+    }
+
+    .header {
+        padding: 5px 10px;
+        font-size: 12px;
+        clear: both;
+        overflow: auto;
+    }
+
+    .name {
+        font-size: 16px;
+        font-family: 'ArialMt Bold';
+        font-weight: bold;
+    }
+
+    .address {
+        white-space: pre-wrap;
+    }
+
+    .gstin,
+    .pan,
+    .cin {
+        font-size: 12px;
+        font-family: 'ArialMt Bold';
+        font-weight: bold;
+        display: block;
+    }
+
+    .invoice_title {
+        text-align: center;
+        padding: 3px;
+        font-size: 14px;
+        font-family: 'ArialMt Bold';
+        font-weight: bold;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+    }
+
+    .invoice_details {
+        font-size: 12px;
+        padding: 5px 0px;
+        word-break: break-word;
+    }
+
+    .billing_address {
+        padding-left: 7px;
+
+    }
+
+    .shipping_address {
+        padding-left: 7px;
+    }
+
+    .invoice_details .name {
+        font-size: 13px;
+        font-family: 'ArialMt Bold';
+        font-weight: bold;
+    }
+
+    .invoice_details .gstin,
+    .invoice_details .pan,
+    .invoice_details .cin {
+        font-size: 12px;
+        font-family: 'ArialMt Bold';
+        font-weight: bold;
+        display: block;
+    }
+
+    .gstin:before {
+        content: 'GSTIN : ';
+    }
+
+    .pan:before {
+        content: 'PAN : ';
+    }
+
+    .contact_no:before,
+    .mobile:before {
+        content: 'Contact : ';
+    }
+
+    .email:before {
+        content: 'E-mail : ';
+    }
+
+    .cin:before {
+        content: 'CIN : ';
+    }
+
+    .inv_rows {
+        font-size: 12px;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    .inv_rows th {
+        border: 0px !important;
+        text-align: left !important;
+        font-family: 'ArialMt Bold';
+        font-weight: bold;
+        width: 100px;
+    }
+
+    .inv_rows td.ad {}
+
+    .inv_rows td {}
+
+    .inv_rows th:after {
+        content: ' : ';
+        font-family: 'ArialMt Bold';
+        font-weight: bold;
+        float: right;
+
+    }
+
+    .inv_rows td {
+        border: 0px !important;
+        text-align: right;
+        padding-right: 10px !important;
+    }
+
+    .item_table th {
+        vertical-align: middle !important;
+    }
+
+    .item_table {
+        width: 100%;
+        font-size: 10px;
+        table-layout: fixed;
+        word-break: break-all;
+    }
+
+    .item_table th {
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        font-family: 'ArialMt Bold';
+        font-weight: bold;
+    }
+
+    .item_table th,
+    .item_table td {
+        page-break-inside: avoid;
+        padding: 1px;
+    }
+
+    .item_table td {
+        vertical-align: bottom;
+    }
+
+    .item_table .item_no {
+        width: 14px;
+        text-align: center;
+        vertical-align: top;
+    }
+
+    .item_table .item_code {
+        width: 38px;
+        text-align: center;
+    }
+
+    .item_table .item_hsn {
+        width: 38px;
+        text-align: center;
+    }
+
+    .item_table .item_desc {
+        font-size: 12px;
+        white-space: pre-wrap;
+    }
+
+    .item_table .item_unit {
+        width: 40px;
+        text-align: center;
+    }
+
+    .item_table .item_qty {
+        width: 38px;
+        text-align: right;
+    }
+
+    .item_table .item_rate {
+        width: 38px;
+        text-align: right;
+    }
+
+    .item_table .item_mrp {
+        width: 38px;
+        text-align: right;
+    }
+
+    .item_table .item_discount {
+        width: 38px;
+        text-align: right;
+    }
+
+    .item_table .item_tax_amount {
+        width: 38px;
+        text-align: right;
+    }
+
+    .item_table .item_tax_perc {
+        width: 12px;
+        text-align: center;
+    }
+
+    .item_table .item_tax_type {
+        width: 38px;
+        text-align: center;
+    }
+
+    .item_table .item_taxable {
+        width: 42px;
+        text-align: right;
+    }
+
+    .item_table .item_total {
+        width: 42px;
+        text-align: right;
+    }
+
+    .header2 th {
+        border-top: 0px;
+    }
+
+    .summary_table_div {
+        padding: 0px 10px;
+        vertical-align: top;
+        border-bottom: 1px solid;
+    }
+
+    .tax_summary {
+        width: 100%;
+    }
+
+    .tax_summary th {
+        font-family: 'ArialMt Bold';
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .tax_summary_details {
+        text-align: right;
+    }
+
+    .tax_summary td {
+        font-size: 14px;
+        text-align: right;
+    }
+
+    .tax_slab {
+        text-align: left;
+    }
+
+    .tax_summary .slap_perc {
+        font-size: 12px;
+        padding-left: 30px;
+        text-align: left;
+        float: left;
+    }
+
+    .total_summary {
+        vertical-align: top;
+    }
+
+    .total_summary .summary_label {
+        display: inline-block;
+        width: 159px;
+        font-family: 'ArialMt Bold';
+        font-weight: bold;
+        font-size: 16px;
+        padding-left: 10px;
+        line-height: 22px;
+    }
+
+    .total_summary .summary_value {
+        display: inline-block;
+        font-family: 'ArialMt Bold';
+        font-weight: bold;
+        font-size: 18px;
+        text-align: right;
+        padding-right: 2px;
+        line-height: 23px;
+        width: calc(100% - 171px);
+    }
+
+    .total_summary .summary_label:nth-last-child(2),
+    .total_summary .summary_value:last-child {
+        border-bottom: 0px;
+    }
+
+    .amount_word {
+        font-family: 'ArialMt Bold';
+        font-weight: bold;
+        padding: 5px 10px;
+    }
+
+    .bank_info {
+        border-bottom: 1px solid;
+        padding: 5px 10px;
+    }
+
+    .inv_details {
+        font-size: 11px;
+        width: 100%;
+    }
+
+    .inv_details td {
+        padding: 5px;
+    }
+
+    .inv_details td:last-child {
+        height: 100px;
+    }
+
+    .inv_details .terms,
+    .inv_details .remarks {
+        white-space: pre-wrap;
+        vertical-align: top;
+    }
+
+    .inv_details .terms .label,
+    .inv_details .remarks .label {
+        font-family: 'ArialMt Bold';
+        font-weight: bold;
+    }
+
+    .author {
+        margin-top: 30px;
+        text-align: right;
+        padding: 15px;
+    }
+
+    .footer {
+        font-size: 10px;
+        text-align: center;
+        margin-top: 5px;
+    }
+</style>
+<div class="main_container">
+    <div class="copy_title">ORIGINAL</div>
+    <div class="container">
+        <table border="0" cellspacing="0" class="item_table" id="item_table_1">
+            <thead>
+                <tr class="hidden_head">
+                    <th class="item_no"></th>
+                    <th class="item_name"></th>
+                    <th class="item_hsn"></th>
+                    <th class="item_unit"></th>
+                    <th class="item_qty"></th>
+                    <th class="item_rate"></th>
+                    <th class="item_taxable"></th>
+                    <th class="item_tax_perc_only"></th>
+                </tr>
+                <tr>
+                    <td style="padding:0px;" colspan="8">
+                        <div class="header_content">
+                            <div class="header" style="text-align:Right">
+                                <img src="https://umaticexpert.com/data/images/umatic_expert_5c1b1aa39ea2f.jpg"
+                                    style="width:150px;height:100px;float:Right;text-align:Right;">
+                                <div style="float:Left;text-align:Left">
+                                    <div class="name">UMATIC EXPERT </div>
+                                    <div class="address">NO. 1157/7/2, 5TH CROSS , PRAKASH NAGAR
+                                        OPP. BLUE HYUNDAI SHOW ROOM, BANGALORE - 560010 </div>
+                                    <div class="contact_no">9606475842</div>
+                                    <div class="email">enquiry@umatic.in</div>
+                                    <div class="website">www.umatic.in</div>
+                                </div>
+                            </div>
+                            <div class="invoice_title">GST INVOICE</div>
+
+                            <div class="invoice_details">
+                                <div class="billing_address" style="width:375px">
+                                    <div class="address_title">Billing Address,</div>
+                                    <div class="name">A B KITCHEN HOME APPLIANCES</div>
+                                    <div class="address">NO 1032,26TH MAIN 4TH T BLOCK JAYNAGAR BANGALORE Karnataka
+                                        560069</div>
+                                </div>
+                                <table border="0" class="inv_rows">
+                                    <tbody>
+                                        <tr>
+                                            <th>Transit Ex</th>
+                                            <td class="ad"></td>
+                                            <th>Invoice No</th>
+                                            <td>2021-22/0001</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Invoice Date</th>
+                                            <td>01-04-2021</td>
+                                        </tr>
+                                        <tr>
+                                            <th>State of Supply</th>
+                                            <td>29 Karnataka</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Payment Mode</th>
+                                            <td>Cash</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Due Date</th>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>No of Packages</th>
+                                            <td class="ad"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Despatched By</th>
+                                            <td class="ad"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th class="item_no">SL</th>
+                    <th class="item_name">ITEM NAME</th>
+                    <th class="item_hsn">HSN/SAC</th>
+                    <th class="item_unit">UNIT</th>
+                    <th class="item_qty">QTY</th>
+                    <th class="item_rate">RATE</th>
+                    <th class="item_taxable">TAXABLE</th>
+                    <th class="item_tax_perc_only">TAX %</th>
+                </tr>
+            </thead>
+            <tbody class="tbody" id="tbody_1">
+                <tr>
+                    <td class="item_no">1</td>
+                    <td class="item_name">SS Wire Mesh 16 X 26<div class="item_desc">1 roll - 90cm X 15.25m (3' X 50')
+                        </div>
+                    </td>
+                    <td class="item_hsn">7314</td>
+                    <td class="item_unit">SQF</td>
+                    <td class="item_qty">150.00</td>
+                    <td class="item_rate">19.25</td>
+                    <td class="item_taxable">2,887.50</td>
+                    <td class="item_tax_perc_only">18</td>
+                </tr>
+                <tr style="height: 160px;">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th class="item_qty">150.00</th>
+                    <th></th>
+                    <th class="item_taxable">2,887.50</th>
+                    <th></th>
+                </tr>
+            </tbody>
+        </table>
+        <div class="total_summary">
+            <div class="summary_label">Taxable</div>
+            <div class="summary_value"><i class="fa fa-inr"></i> 2,887.50</div>
+            <div class="summary_label">Tax</div>
+            <div class="summary_value"><i class="fa fa-inr"></i> 519.76</div>
+            <div class="summary_label">ROUND OFF</div>
+            <div class="summary_value"><i class="fa fa-inr"></i> -0.26</div>
+            <div class="summary_label">Grand Total</div>
+            <div class="summary_value"><i class="fa fa-inr"></i> 3,407.00</div>
+        </div>
+        <div class="amount_word">Rupees Three Thousand Four Hundred and Seven Only/-</div>
+        <div style="text-align: center;font-size: 18px;"> * * You Saved Rs. <i class="fa fa-inr"></i><span
+                id="minus_discount">.00</span> on M.R.P * * </div>
+        <div class="summary_table_div">
+            <table class="tax_summary" border="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="tax_slab">SUMMARY</th>
+                        <th class="tax_summary_details">TAXABLE</th>
+                        <th class="tax_summary_details">CGST</th>
+                        <th class="tax_summary_details">SGST</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="tax_slab">GST @ 18%</th>
+                        <td>2,887.50</td>
+                        <td>259.88</td>
+                        <td>259.88</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="bank_info">
+            <div style="font-weight:bold;font-family:'ArialMt Bold'">Bank Account Information :</div>Array
+        </div>
+        <div class="inv_details">
+            <div class="terms">
+                <div class="label">Terms and Conditions</div>1. Goods once sold will not be taken back or exchanged.
+                2. All disputes are subject to Bangalore Jurisdiction.
+                3.We are not responsible for any transit damage ,loss or leakage.
+                4.Payment is due within 30 days from date of invoice. Late payment is subject to fees of 5% per month.
+
+            </div>
+            <div class="customer_signature">Customer Signature</div>
+            <div class="author"><img src="https://umaticexpert.com/data/images/sale_5c25bc6a9fe68.png">
+                <div>Authorised Signature</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">This is a Computer Generated Copy Generated by UmaticExpert</div>
+</div>
+
+<div class="main_container">
+    <div class="copy_title">Duplicate</div>
+    <div class="container">
+        <table border="0" cellspacing="0" class="item_table" id="item_table_1">
+            <thead>
+                <tr class="hidden_head">
+                    <th class="item_no"></th>
+                    <th class="item_name"></th>
+                    <th class="item_hsn"></th>
+                    <th class="item_unit"></th>
+                    <th class="item_qty"></th>
+                    <th class="item_rate"></th>
+                    <th class="item_taxable"></th>
+                    <th class="item_tax_perc_only"></th>
+                </tr>
+                <tr>
+                    <td style="padding:0px;" colspan="8">
+                        <div class="header_content">
+                            <div class="header" style="text-align:Right">
+                                <img src="https://umaticexpert.com/data/images/umatic_expert_5c1b1aa39ea2f.jpg"
+                                    style="width:150px;height:100px;float:Right;text-align:Right;">
+                                <div style="float:Left;text-align:Left">
+                                    <div class="name">UMATIC EXPERT </div>
+                                    <div class="address">NO. 1157/7/2, 5TH CROSS , PRAKASH NAGAR
+                                        OPP. BLUE HYUNDAI SHOW ROOM, BANGALORE - 560010 </div>
+                                    <div class="contact_no">9606475842</div>
+                                    <div class="email">enquiry@umatic.in</div>
+                                    <div class="website">www.umatic.in</div>
+                                </div>
+                            </div>
+                            <div class="invoice_title">GST INVOICE</div>
+
+                            <div class="invoice_details">
+                                <div class="billing_address" style="width:375px">
+                                    <div class="address_title">Billing Address,</div>
+                                    <div class="name">A B KITCHEN HOME APPLIANCES</div>
+                                    <div class="address">NO 1032,26TH MAIN 4TH T BLOCK JAYNAGAR BANGALORE Karnataka
+                                        560069</div>
+                                </div>
+                                <table border="0" class="inv_rows">
+                                    <tbody>
+                                        <tr>
+                                            <th>Transit Ex</th>
+                                            <td class="ad"></td>
+                                            <th>Invoice No</th>
+                                            <td>2021-22/0001</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Invoice Date</th>
+                                            <td>01-04-2021</td>
+                                        </tr>
+                                        <tr>
+                                            <th>State of Supply</th>
+                                            <td>29 Karnataka</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Payment Mode</th>
+                                            <td>Cash</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Due Date</th>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>No of Packages</th>
+                                            <td class="ad"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Despatched By</th>
+                                            <td class="ad"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th class="item_no">SL</th>
+                    <th class="item_name">ITEM NAME</th>
+                    <th class="item_hsn">HSN/SAC</th>
+                    <th class="item_unit">UNIT</th>
+                    <th class="item_qty">QTY</th>
+                    <th class="item_rate">RATE</th>
+                    <th class="item_taxable">TAXABLE</th>
+                    <th class="item_tax_perc_only">TAX %</th>
+                </tr>
+            </thead>
+            <tbody class="tbody" id="tbody_1">
+                <tr>
+                    <td class="item_no">1</td>
+                    <td class="item_name">SS Wire Mesh 16 X 26<div class="item_desc">1 roll - 90cm X 15.25m (3' X 50')
+                        </div>
+                    </td>
+                    <td class="item_hsn">7314</td>
+                    <td class="item_unit">SQF</td>
+                    <td class="item_qty">150.00</td>
+                    <td class="item_rate">19.25</td>
+                    <td class="item_taxable">2,887.50</td>
+                    <td class="item_tax_perc_only">18</td>
+                </tr>
+                <tr style="height: 160px;">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th class="item_qty">150.00</th>
+                    <th></th>
+                    <th class="item_taxable">2,887.50</th>
+                    <th></th>
+                </tr>
+            </tbody>
+        </table>
+        <div class="total_summary">
+            <div class="summary_label">Taxable</div>
+            <div class="summary_value"><i class="fa fa-inr"></i> 2,887.50</div>
+            <div class="summary_label">Tax</div>
+            <div class="summary_value"><i class="fa fa-inr"></i> 519.76</div>
+            <div class="summary_label">ROUND OFF</div>
+            <div class="summary_value"><i class="fa fa-inr"></i> -0.26</div>
+            <div class="summary_label">Grand Total</div>
+            <div class="summary_value"><i class="fa fa-inr"></i> 3,407.00</div>
+        </div>
+        <div class="amount_word">Rupees Three Thousand Four Hundred and Seven Only/-</div>
+        <div style="text-align: center;font-size: 18px;"> * * You Saved Rs. <i class="fa fa-inr"></i><span
+                id="minus_discount">.00</span> on M.R.P * * </div>
+        <div class="summary_table_div">
+            <table class="tax_summary" border="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="tax_slab">SUMMARY</th>
+                        <th class="tax_summary_details">TAXABLE</th>
+                        <th class="tax_summary_details">CGST</th>
+                        <th class="tax_summary_details">SGST</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="tax_slab">GST @ 18%</th>
+                        <td>2,887.50</td>
+                        <td>259.88</td>
+                        <td>259.88</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="bank_info">
+            <div style="font-weight:bold;font-family:'ArialMt Bold'">Bank Account Information :</div>Array
+        </div>
+        <div class="inv_details">
+            <div class="terms">
+                <div class="label">Terms and Conditions</div>1. Goods once sold will not be taken back or exchanged.
+                2. All disputes are subject to Bangalore Jurisdiction.
+                3.We are not responsible for any transit damage ,loss or leakage.
+                4.Payment is due within 30 days from date of invoice. Late payment is subject to fees of 5% per month.
+
+            </div>
+            <div class="customer_signature">Customer Signature</div>
+            <div class="author"><img src="https://umaticexpert.com/data/images/sale_5c25bc6a9fe68.png">
+                <div>Authorised Signature</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">This is a Computer Generated Copy Generated by UmaticExpert</div>
+</div>

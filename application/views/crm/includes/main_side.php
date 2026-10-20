@@ -1,0 +1,109 @@
+<?php include_once('header.php'); ?>
+<?php include_once('topbar.php'); ?>
+
+<aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url() ?>crm/company/main_dashboard">
+                <i class="bi bi-grid"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Master</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+
+                <li>
+                    <a href="<?= getCrmUrl() ?>party/partyData">
+                        <i class="bi bi-circle"></i><span>Party</span>
+                    </a>
+                </li>
+
+
+            </ul>
+        </li><!-- End Components Nav -->
+        <!-- End Dashboard Nav -->
+
+
+        <?php
+        if ($this->session->userdata('roles') == 1) {
+
+        ?>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#components-navs" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Super Master</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="components-navs" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <!-- <li>
+                        <a href="<?= getCrmUrl() ?>subcategory">
+                            <i class="bi bi-circle"></i><span>Category</span>
+                        </a>
+                    </li> -->
+                    <li>
+                        <a href="<?= getCrmUrl() ?>service">
+                            <i class="bi bi-circle"></i><span>Service Group</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="<?= getCrmUrl() ?>serviceSubGroup">
+                            <i class="bi bi-circle"></i><span>Service Sub-Group</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="<?= getCrmUrl() ?>master/status">
+                            <i class="bi bi-circle"></i><span>Status</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="<?= getCrmUrl() ?>type">
+                            <i class="bi bi-circle"></i><span>Type</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="<?= getCrmUrl() ?>paymentmode">
+                            <i class="bi bi-circle"></i><span>Payment Mode</span>
+                        </a>
+                    </li>
+
+
+
+                </ul>
+            </li>
+            <!-- End Components Nav -->
+
+
+
+        <?php
+        }
+        ?>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= getCrmUrl() ?>company/profile">
+            <i class="fa-solid fa-user"></i>
+                <span>Company Profile</span>
+            </a>
+        </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= base_url() ?>inventory_billing">
+                <i class="bi bi-file-earmark"></i>
+                <span>Inventory Software</span>
+            </a>
+        </li>
+
+        <!-- End Blank Page Nav -->
+
+    </ul>
+
+</aside>

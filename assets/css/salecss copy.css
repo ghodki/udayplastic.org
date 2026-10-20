@@ -1,0 +1,140 @@
+.my-nav-link {
+    padding: 0.02em 1em !important;
+}
+
+.nav-pills .nav-link {
+    border-radius: .25rem !important;
+}
+
+.input-group-text {
+    color: #495057;
+    background-color: #e9ecef;
+    border-radius: 0;
+}
+
+.bg-dark,
+.bg-dark>a {
+    color: #fff!important;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.card {
+    box-shadow: 0 0 1px rgba(0, 0, 0, .125), 0 1px 3px rgba(0, 0, 0, .2);
+    margin-bottom: 1rem !important;
+}
+
+.mydiv {
+    margin-left: -24px;
+    margin-right: -24px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: normal;
+}
+
+.select2-container .select2-selection--single,
+.select2-selection__rendered {
+    padding: 0px;
+    height: 18px;
+}
+
+.select2-container {
+    width: 200px !important;
+}
+
+label {
+    font-size: 15px !important;
+}
+
+.my-nav-link {
+    padding: 0.02em 1em;
+}
+
+.form-control {
+    font-size: 15px !important;
+    padding: 2px !important;
+    display: block;
+    width: 100%;
+    height: auto;
+    /* padding: .375rem .75rem; */
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    box-shadow: inset 0 0 0 transparent;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.table td {
+    padding: 1px;
+}
+
+th {
+    font-size: 13px !important;
+}
+
+.cp {
+    cursor: pointer;
+}
+
+
+/*input {*/
+
+
+/*    height: 30px !important;*/
+
+
+/*}*/
+
+@media (max-width: 767px) {
+    .mb-sm-1 {
+        margin-bottom: 0.2em;
+    }
+}
+
+@media (min-width: 768px) {
+    .mb-sm-1 {
+        margin-bottom: 0em !important;
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Firefox */
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.inner_table {
+    display: block;
+    height: 180px;
+    overflow-y: scroll;
+}
+
+span.col-5,
+label.col-5,
+label.col-7 {
+    padding-left: 0px;
+    padding-right: 0px;
+}

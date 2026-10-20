@@ -1,0 +1,338 @@
+<style> 
+    @font-face{
+        font-family:'ArialMt';
+        src:url('../assets/fonts/Arial MT.ttf') format("truetype");
+    }
+    body{
+        font-family:ArialMt;
+        margin:0px;
+    }
+    #barcode {
+        margin-left: 40px;
+    }
+    .barcode:nth-child(even) {
+        margin-left: 6px;
+    }
+    .barcode {
+        text-align: center;
+        float: left;
+        display: inline-block;
+        font-size: 12px;
+        overflow: hidden;
+        width: 4.76cm;
+        height: 20mm;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        padding-top: 10px;
+        position: relative;
+    }
+    body{
+        margin:0px 12px;
+    }
+    .barcode img{margin-top: -10px;}
+    .clear{
+        clear:both;
+    }
+    .clear:nth-child(odd) {
+        margin: 5px;
+    }
+    .iat{
+        clear:both;
+        float: right;
+        font-size:8px;
+        font-weight:bold;
+        padding-right:10px;
+    }
+    .price_code{
+        float: left;
+        font-size:8px;
+        font-weight:bold;
+        padding-left:30px;
+    }
+    @page{ 
+        size: auto; 
+        margin: 1mm 1mm 1mm 1mm;  
+    }
+    .rotatetxt {
+        transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        position: absolute;
+        bottom: 27px;
+        text-align: center;
+        font-size: 18px;
+        left: -20px;
+        text-transform: uppercase;
+        font-weight: 600;
+}
+
+    </style>
+    <script type="text/javascript" src="../assets/js/JsBarcode.all.min.js"></script>
+    <body>
+        <div id="barcode">
+            <div class="barcode">
+                <div class="rotatetxt">Rotate</div>
+                <div style="font-size:11px;">Jarurat</div>
+                <img id="" data="" class="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAAAjCAYAAACAY7T5AAAAAXNSR0IArs4c6QAAAQlJREFUaEPtmNEOhSAMQ/X/P1pDZDfNHMJ9MKnJ8UUDCLWlzG3fuGwY2G2QAGRDDKNNgBiIYcSAERScgRhGDBhBwRmIYcSAERSc8VExjo67CdieQ0h9jk+LtvxO9OsmyGPbmFhDqcptikPXUQwxV7uP1tE+Xa/6hhir82qbYle8S5t+aVBHiBgXEU/CI8aEoOzgILNyDc4ojiWOqUks45jimPptEQK4uAVn4AycUYUPnIEzcAbOuGfsmq+QgUtyt5Lp5kyZcki3WPVbqjWk0W8rtalB8kcAJ4ATwCeVEbrfYOCfEvob6zOnMIAYRtsBMRDDiAEjKDgDMYwYMIKCMxDDiAEjKDjDSIwTFqlKM6p6iugAAAAASUVORK5CYII=">
+                <div style="">
+                    <div>BELAN-1</div>
+                    <div>MRP. Rs 95.00</div>
+                    <div>JPW Price Rs. 70.00</div>
+                </div>
+                <div class="iat">(Incl. of all taxes)</div>
+                <span class="price_code">NA.XX</span>
+            </div>
+        
+        
+            <div class="barcode">
+                <div class="rotatetxt">Rotate</div>
+                <div style="font-size:11px;">Jarurat</div>
+                <img id="barcode_1" data="J5419" class="barcode_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAAAjCAYAAACAY7T5AAAAAXNSR0IArs4c6QAAAQlJREFUaEPtmNEOhSAMQ/X/P1pDZDfNHMJ9MKnJ8UUDCLWlzG3fuGwY2G2QAGRDDKNNgBiIYcSAERScgRhGDBhBwRmIYcSAERSc8VExjo67CdieQ0h9jk+LtvxO9OsmyGPbmFhDqcptikPXUQwxV7uP1tE+Xa/6hhir82qbYle8S5t+aVBHiBgXEU/CI8aEoOzgILNyDc4ojiWOqUks45jimPptEQK4uAVn4AycUYUPnIEzcAbOuGfsmq+QgUtyt5Lp5kyZcki3WPVbqjWk0W8rtalB8kcAJ4ATwCeVEbrfYOCfEvob6zOnMIAYRtsBMRDDiAEjKDgDMYwYMIKCMxDDiAEjKDjDSIwTFqlKM6p6iugAAAAASUVORK5CYII=">
+                <div style="margin-top: -10px;font-size:11px;">
+                    <div>BELAN-1</div>
+                    <div>MRP. Rs 95.00</div>
+                    <div>JPW Price Rs. 70.00</div>
+                </div>
+                <div class="iat">(Incl. of all taxes)</div>
+                <span class="price_code">NA.XX</span>
+            </div>
+        <div class="clear"></div>
+        
+            <div class="barcode">
+                <div style="font-size:11px;">Jarurat</div>
+                <img id="barcode_2" data="J5419" class="barcode_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAAAjCAYAAACAY7T5AAAAAXNSR0IArs4c6QAAAQlJREFUaEPtmNEOhSAMQ/X/P1pDZDfNHMJ9MKnJ8UUDCLWlzG3fuGwY2G2QAGRDDKNNgBiIYcSAERScgRhGDBhBwRmIYcSAERSc8VExjo67CdieQ0h9jk+LtvxO9OsmyGPbmFhDqcptikPXUQwxV7uP1tE+Xa/6hhir82qbYle8S5t+aVBHiBgXEU/CI8aEoOzgILNyDc4ojiWOqUks45jimPptEQK4uAVn4AycUYUPnIEzcAbOuGfsmq+QgUtyt5Lp5kyZcki3WPVbqjWk0W8rtalB8kcAJ4ATwCeVEbrfYOCfEvob6zOnMIAYRtsBMRDDiAEjKDgDMYwYMIKCMxDDiAEjKDjDSIwTFqlKM6p6iugAAAAASUVORK5CYII=">
+                <div style="margin-top: -10px;font-size:11px;">
+                    <div>BELAN-1</div>
+                    <div>MRP. Rs 95.00</div>
+                    <div>JPW Price Rs. 70.00</div>
+                </div>
+                <div class="iat">(Incl. of all taxes)</div>
+                <span class="price_code">NA.XX</span>
+            </div>
+        
+        
+            <div class="barcode">
+                <div style="font-size:11px;">Jarurat</div>
+                <img id="barcode_3" data="J5418" class="barcode_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAAAjCAYAAACAY7T5AAAAAXNSR0IArs4c6QAAAS1JREFUaEPtmuEKwjAMhLf3f2iluOgZ0y5jECJ8/nHUrEnvet0uuG982iCwt6mEQjbIaLQJIAMyGiHQqBSUARmNEGhUCsqAjEYINCoFZfwpGY+j7kHguDYi9dqWZmP+HvtdN4GPHTGWQ6HyY1qH5tEabK7xbTF+zM+j69LY2bzR3NH6T2m/ogzIeMG5Il43km6eFM6poINSyICMt7o5puSgQxkoA2VET36UgTJQBsqIX2F5tXVmU43jylx5P4DpWwA5c+s48FOv/i1b2iGfdhDtEOlfzdoOHFPSOvEgRWe27aqZu1bB4sBx4D//oGnRKEw8Vgi5g8CVru2dPNybQAAyEiBVhUBGFdKJPJCRAKkqBDKqkE7kgYwESFUhkFGFdCIPZCRAqgqBjCqkE3mejqlKMyiveh0AAAAASUVORK5CYII=">
+                <div style="margin-top: -10px;font-size:11px;">
+                    <div>PAKAD-STEAL</div>
+                    <div>MRP. Rs 65.00</div>
+                    <div>JPW Price Rs. 50.00</div>
+                </div>
+                <div class="iat">(Incl. of all taxes)</div>
+                <span class="price_code">IX.XX</span>
+            </div>
+        <div class="clear"></div>
+        
+            <div class="barcode">
+                <div style="font-size:11px;">Jarurat</div>
+                <img id="barcode_4" data="J5418" class="barcode_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAAAjCAYAAACAY7T5AAAAAXNSR0IArs4c6QAAAS1JREFUaEPtmuEKwjAMhLf3f2iluOgZ0y5jECJ8/nHUrEnvet0uuG982iCwt6mEQjbIaLQJIAMyGiHQqBSUARmNEGhUCsqAjEYINCoFZfwpGY+j7kHguDYi9dqWZmP+HvtdN4GPHTGWQ6HyY1qH5tEabK7xbTF+zM+j69LY2bzR3NH6T2m/ogzIeMG5Il43km6eFM6poINSyICMt7o5puSgQxkoA2VET36UgTJQBsqIX2F5tXVmU43jylx5P4DpWwA5c+s48FOv/i1b2iGfdhDtEOlfzdoOHFPSOvEgRWe27aqZu1bB4sBx4D//oGnRKEw8Vgi5g8CVru2dPNybQAAyEiBVhUBGFdKJPJCRAKkqBDKqkE7kgYwESFUhkFGFdCIPZCRAqgqBjCqkE3mejqlKMyiveh0AAAAASUVORK5CYII=">
+                <div style="margin-top: -10px;font-size:11px;">
+                    <div>PAKAD-STEAL</div>
+                    <div>MRP. Rs 65.00</div>
+                    <div>JPW Price Rs. 50.00</div>
+                </div>
+                <div class="iat">(Incl. of all taxes)</div>
+                <span class="price_code">IX.XX</span>
+            </div>
+        
+        
+            <div class="barcode">
+                <div style="font-size:11px;">Jarurat</div>
+                <img id="barcode_5" data="J5418" class="barcode_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAAAjCAYAAACAY7T5AAAAAXNSR0IArs4c6QAAAS1JREFUaEPtmuEKwjAMhLf3f2iluOgZ0y5jECJ8/nHUrEnvet0uuG982iCwt6mEQjbIaLQJIAMyGiHQqBSUARmNEGhUCsqAjEYINCoFZfwpGY+j7kHguDYi9dqWZmP+HvtdN4GPHTGWQ6HyY1qH5tEabK7xbTF+zM+j69LY2bzR3NH6T2m/ogzIeMG5Il43km6eFM6poINSyICMt7o5puSgQxkoA2VET36UgTJQBsqIX2F5tXVmU43jylx5P4DpWwA5c+s48FOv/i1b2iGfdhDtEOlfzdoOHFPSOvEgRWe27aqZu1bB4sBx4D//oGnRKEw8Vgi5g8CVru2dPNybQAAyEiBVhUBGFdKJPJCRAKkqBDKqkE7kgYwESFUhkFGFdCIPZCRAqgqBjCqkE3mejqlKMyiveh0AAAAASUVORK5CYII=">
+                <div style="margin-top: -10px;font-size:11px;">
+                    <div>PAKAD-STEAL</div>
+                    <div>MRP. Rs 65.00</div>
+                    <div>JPW Price Rs. 50.00</div>
+                </div>
+                <div class="iat">(Incl. of all taxes)</div>
+                <span class="price_code">IX.XX</span>
+            </div>
+        <div class="clear"></div>
+        
+            <div class="barcode">
+                <div style="font-size:11px;">Jarurat</div>
+                <img id="barcode_6" data="J5418" class="barcode_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAAAjCAYAAACAY7T5AAAAAXNSR0IArs4c6QAAAS1JREFUaEPtmuEKwjAMhLf3f2iluOgZ0y5jECJ8/nHUrEnvet0uuG982iCwt6mEQjbIaLQJIAMyGiHQqBSUARmNEGhUCsqAjEYINCoFZfwpGY+j7kHguDYi9dqWZmP+HvtdN4GPHTGWQ6HyY1qH5tEabK7xbTF+zM+j69LY2bzR3NH6T2m/ogzIeMG5Il43km6eFM6poINSyICMt7o5puSgQxkoA2VET36UgTJQBsqIX2F5tXVmU43jylx5P4DpWwA5c+s48FOv/i1b2iGfdhDtEOlfzdoOHFPSOvEgRWe27aqZu1bB4sBx4D//oGnRKEw8Vgi5g8CVru2dPNybQAAyEiBVhUBGFdKJPJCRAKkqBDKqkE7kgYwESFUhkFGFdCIPZCRAqgqBjCqkE3mejqlKMyiveh0AAAAASUVORK5CYII=">
+                <div style="margin-top: -10px;font-size:11px;">
+                    <div>PAKAD-STEAL</div>
+                    <div>MRP. Rs 65.00</div>
+                    <div>JPW Price Rs. 50.00</div>
+                </div>
+                <div class="iat">(Incl. of all taxes)</div>
+                <span class="price_code">IX.XX</span>
+            </div>
+        
+        
+            <div class="barcode">
+                <div style="font-size:11px;">Jarurat</div>
+                <img id="barcode_7" data="J5418" class="barcode_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAAAjCAYAAACAY7T5AAAAAXNSR0IArs4c6QAAAS1JREFUaEPtmuEKwjAMhLf3f2iluOgZ0y5jECJ8/nHUrEnvet0uuG982iCwt6mEQjbIaLQJIAMyGiHQqBSUARmNEGhUCsqAjEYINCoFZfwpGY+j7kHguDYi9dqWZmP+HvtdN4GPHTGWQ6HyY1qH5tEabK7xbTF+zM+j69LY2bzR3NH6T2m/ogzIeMG5Il43km6eFM6poINSyICMt7o5puSgQxkoA2VET36UgTJQBsqIX2F5tXVmU43jylx5P4DpWwA5c+s48FOv/i1b2iGfdhDtEOlfzdoOHFPSOvEgRWe27aqZu1bB4sBx4D//oGnRKEw8Vgi5g8CVru2dPNybQAAyEiBVhUBGFdKJPJCRAKkqBDKqkE7kgYwESFUhkFGFdCIPZCRAqgqBjCqkE3mejqlKMyiveh0AAAAASUVORK5CYII=">
+                <div style="margin-top: -10px;font-size:11px;">
+                    <div>PAKAD-STEAL</div>
+                    <div>MRP. Rs 65.00</div>
+                    <div>JPW Price Rs. 50.00</div>
+                </div>
+                <div class="iat">(Incl. of all taxes)</div>
+                <span class="price_code">IX.XX</span>
+            </div>
+        <div class="clear"></div>
+        
+            <div class="barcode">
+                <div style="font-size:11px;">Jarurat</div>
+                <img id="barcode_8" data="J5418" class="barcode_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAAAjCAYAAACAY7T5AAAAAXNSR0IArs4c6QAAAS1JREFUaEPtmuEKwjAMhLf3f2iluOgZ0y5jECJ8/nHUrEnvet0uuG982iCwt6mEQjbIaLQJIAMyGiHQqBSUARmNEGhUCsqAjEYINCoFZfwpGY+j7kHguDYi9dqWZmP+HvtdN4GPHTGWQ6HyY1qH5tEabK7xbTF+zM+j69LY2bzR3NH6T2m/ogzIeMG5Il43km6eFM6poINSyICMt7o5puSgQxkoA2VET36UgTJQBsqIX2F5tXVmU43jylx5P4DpWwA5c+s48FOv/i1b2iGfdhDtEOlfzdoOHFPSOvEgRWe27aqZu1bB4sBx4D//oGnRKEw8Vgi5g8CVru2dPNybQAAyEiBVhUBGFdKJPJCRAKkqBDKqkE7kgYwESFUhkFGFdCIPZCRAqgqBjCqkE3mejqlKMyiveh0AAAAASUVORK5CYII=">
+                <div style="margin-top: -10px;font-size:11px;">
+                    <div>PAKAD-STEAL</div>
+                    <div>MRP. Rs 65.00</div>
+                    <div>JPW Price Rs. 50.00</div>
+                </div>
+                <div class="iat">(Incl. of all taxes)</div>
+                <span class="price_code">IX.XX</span>
+            </div>
+        
+        
+            <div class="barcode">
+                <div style="font-size:11px;">Jarurat</div>
+                <img id="barcode_9" data="J5418" class="barcode_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAAAjCAYAAACAY7T5AAAAAXNSR0IArs4c6QAAAS1JREFUaEPtmuEKwjAMhLf3f2iluOgZ0y5jECJ8/nHUrEnvet0uuG982iCwt6mEQjbIaLQJIAMyGiHQqBSUARmNEGhUCsqAjEYINCoFZfwpGY+j7kHguDYi9dqWZmP+HvtdN4GPHTGWQ6HyY1qH5tEabK7xbTF+zM+j69LY2bzR3NH6T2m/ogzIeMG5Il43km6eFM6poINSyICMt7o5puSgQxkoA2VET36UgTJQBsqIX2F5tXVmU43jylx5P4DpWwA5c+s48FOv/i1b2iGfdhDtEOlfzdoOHFPSOvEgRWe27aqZu1bB4sBx4D//oGnRKEw8Vgi5g8CVru2dPNybQAAyEiBVhUBGFdKJPJCRAKkqBDKqkE7kgYwESFUhkFGFdCIPZCRAqgqBjCqkE3mejqlKMyiveh0AAAAASUVORK5CYII=">
+                <div style="margin-top: -10px;font-size:11px;">
+                    <div>PAKAD-STEAL</div>
+                    <div>MRP. Rs 65.00</div>
+                    <div>JPW Price Rs. 50.00</div>
+                </div>
+                <div class="iat">(Incl. of all taxes)</div>
+                <span class="price_code">IX.XX</span>
+            </div>
+        <div class="clear"></div>
+        
+            <div class="barcode">
+                <div style="font-size:11px;">Jarurat</div>
+                <img id="barcode_10" data="J5418" class="barcode_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAAAjCAYAAACAY7T5AAAAAXNSR0IArs4c6QAAAS1JREFUaEPtmuEKwjAMhLf3f2iluOgZ0y5jECJ8/nHUrEnvet0uuG982iCwt6mEQjbIaLQJIAMyGiHQqBSUARmNEGhUCsqAjEYINCoFZfwpGY+j7kHguDYi9dqWZmP+HvtdN4GPHTGWQ6HyY1qH5tEabK7xbTF+zM+j69LY2bzR3NH6T2m/ogzIeMG5Il43km6eFM6poINSyICMt7o5puSgQxkoA2VET36UgTJQBsqIX2F5tXVmU43jylx5P4DpWwA5c+s48FOv/i1b2iGfdhDtEOlfzdoOHFPSOvEgRWe27aqZu1bB4sBx4D//oGnRKEw8Vgi5g8CVru2dPNybQAAyEiBVhUBGFdKJPJCRAKkqBDKqkE7kgYwESFUhkFGFdCIPZCRAqgqBjCqkE3mejqlKMyiveh0AAAAASUVORK5CYII=">
+                <div style="margin-top: -10px;font-size:11px;">
+                    <div>PAKAD-STEAL</div>
+                    <div>MRP. Rs 65.00</div>
+                    <div>JPW Price Rs. 50.00</div>
+                </div>
+                <div class="iat">(Incl. of all taxes)</div>
+                <span class="price_code">IX.XX</span>
+            </div>
+        
+        
+            <div class="barcode">
+                <div style="font-size:11px;">Jarurat</div>
+                <img id="barcode_11" data="J5418" class="barcode_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAAAjCAYAAACAY7T5AAAAAXNSR0IArs4c6QAAAS1JREFUaEPtmuEKwjAMhLf3f2iluOgZ0y5jECJ8/nHUrEnvet0uuG982iCwt6mEQjbIaLQJIAMyGiHQqBSUARmNEGhUCsqAjEYINCoFZfwpGY+j7kHguDYi9dqWZmP+HvtdN4GPHTGWQ6HyY1qH5tEabK7xbTF+zM+j69LY2bzR3NH6T2m/ogzIeMG5Il43km6eFM6poINSyICMt7o5puSgQxkoA2VET36UgTJQBsqIX2F5tXVmU43jylx5P4DpWwA5c+s48FOv/i1b2iGfdhDtEOlfzdoOHFPSOvEgRWe27aqZu1bB4sBx4D//oGnRKEw8Vgi5g8CVru2dPNybQAAyEiBVhUBGFdKJPJCRAKkqBDKqkE7kgYwESFUhkFGFdCIPZCRAqgqBjCqkE3mejqlKMyiveh0AAAAASUVORK5CYII=">
+                <div style="margin-top: -10px;font-size:11px;">
+                    <div>PAKAD-STEAL</div>
+                    <div>MRP. Rs 65.00</div>
+                    <div>JPW Price Rs. 50.00</div>
+                </div>
+                <div class="iat">(Incl. of all taxes)</div>
+                <span class="price_code">IX.XX</span>
+            </div>
+        <div class="clear"></div>
+        
+            <div class="barcode">
+                <div style="font-size:11px;">Jarurat</div>
+                <img id="barcode_12" data="J5418" class="barcode_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAAAjCAYAAACAY7T5AAAAAXNSR0IArs4c6QAAAS1JREFUaEPtmuEKwjAMhLf3f2iluOgZ0y5jECJ8/nHUrEnvet0uuG982iCwt6mEQjbIaLQJIAMyGiHQqBSUARmNEGhUCsqAjEYINCoFZfwpGY+j7kHguDYi9dqWZmP+HvtdN4GPHTGWQ6HyY1qH5tEabK7xbTF+zM+j69LY2bzR3NH6T2m/ogzIeMG5Il43km6eFM6poINSyICMt7o5puSgQxkoA2VET36UgTJQBsqIX2F5tXVmU43jylx5P4DpWwA5c+s48FOv/i1b2iGfdhDtEOlfzdoOHFPSOvEgRWe27aqZu1bB4sBx4D//oGnRKEw8Vgi5g8CVru2dPNybQAAyEiBVhUBGFdKJPJCRAKkqBDKqkE7kgYwESFUhkFGFdCIPZCRAqgqBjCqkE3mejqlKMyiveh0AAAAASUVORK5CYII=">
+                <div style="margin-top: -10px;font-size:11px;">
+                    <div>PAKAD-STEAL</div>
+                    <div>MRP. Rs 65.00</div>
+                    <div>JPW Price Rs. 50.00</div>
+                </div>
+                <div class="iat">(Incl. of all taxes)</div>
+                <span class="price_code">IX.XX</span>
+            </div>
+        
+        
+            <div class="barcode">
+                <div style="font-size:11px;">Jarurat</div>
+                <img id="barcode_13" data="J5418" class="barcode_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAAAjCAYAAACAY7T5AAAAAXNSR0IArs4c6QAAAS1JREFUaEPtmuEKwjAMhLf3f2iluOgZ0y5jECJ8/nHUrEnvet0uuG982iCwt6mEQjbIaLQJIAMyGiHQqBSUARmNEGhUCsqAjEYINCoFZfwpGY+j7kHguDYi9dqWZmP+HvtdN4GPHTGWQ6HyY1qH5tEabK7xbTF+zM+j69LY2bzR3NH6T2m/ogzIeMG5Il43km6eFM6poINSyICMt7o5puSgQxkoA2VET36UgTJQBsqIX2F5tXVmU43jylx5P4DpWwA5c+s48FOv/i1b2iGfdhDtEOlfzdoOHFPSOvEgRWe27aqZu1bB4sBx4D//oGnRKEw8Vgi5g8CVru2dPNybQAAyEiBVhUBGFdKJPJCRAKkqBDKqkE7kgYwESFUhkFGFdCIPZCRAqgqBjCqkE3mejqlKMyiveh0AAAAASUVORK5CYII=">
+                <div style="margin-top: -10px;font-size:11px;">
+                    <div>PAKAD-STEAL</div>
+                    <div>MRP. Rs 65.00</div>
+                    <div>JPW Price Rs. 50.00</div>
+                </div>
+                <div class="iat">(Incl. of all taxes)</div>
+                <span class="price_code">IX.XX</span>
+            </div>
+        <div class="clear"></div>
+        
+            <div class="barcode">
+                <div style="font-size:11px;">Jarurat</div>
+                <img id="barcode_14" data="J5418" class="barcode_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAAAjCAYAAACAY7T5AAAAAXNSR0IArs4c6QAAAS1JREFUaEPtmuEKwjAMhLf3f2iluOgZ0y5jECJ8/nHUrEnvet0uuG982iCwt6mEQjbIaLQJIAMyGiHQqBSUARmNEGhUCsqAjEYINCoFZfwpGY+j7kHguDYi9dqWZmP+HvtdN4GPHTGWQ6HyY1qH5tEabK7xbTF+zM+j69LY2bzR3NH6T2m/ogzIeMG5Il43km6eFM6poINSyICMt7o5puSgQxkoA2VET36UgTJQBsqIX2F5tXVmU43jylx5P4DpWwA5c+s48FOv/i1b2iGfdhDtEOlfzdoOHFPSOvEgRWe27aqZu1bB4sBx4D//oGnRKEw8Vgi5g8CVru2dPNybQAAyEiBVhUBGFdKJPJCRAKkqBDKqkE7kgYwESFUhkFGFdCIPZCRAqgqBjCqkE3mejqlKMyiveh0AAAAASUVORK5CYII=">
+                <div style="margin-top: -10px;font-size:11px;">
+                    <div>PAKAD-STEAL</div>
+                    <div>MRP. Rs 65.00</div>
+                    <div>JPW Price Rs. 50.00</div>
+                </div>
+                <div class="iat">(Incl. of all taxes)</div>
+                <span class="price_code">IX.XX</span>
+            </div>
+        
+        
+            <div class="barcode">
+                <div style="font-size:11px;">Jarurat</div>
+                <img id="barcode_15" data="J5420" class="barcode_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAAAjCAYAAACAY7T5AAAAAXNSR0IArs4c6QAAATFJREFUaEPtmOEOg0AIg/X9H3rLxTEbBhvGhLDk258ZxQNbekr3jd8YBPYxlVDIBhmDmgAyIGMQAoNKQRmQMQiBQaWgDMgYhMCgUlDGn5LxeNW9CFzHRqQe26PZOX+PXdcm8LErxnIoVP6c1qF5tAZba/37mrWW6Jp/zmxdWztaL6orpf+KMiDjgPEb8dpI2jwlnEtBLyohAzLeqmabkg0OZaAMlBG98VEGykAZKOOcdfwXJ5+2wSDI0CegMIGf+4ephaHvx1QcNU0Gnp+wM6tHbRbsEKdQvCmxSaKXnPdmfDdmpiJGYWolfu6LuLYHJt55bnVtC3wRcgeBK67tnTzcW0AAMgogdYVARhfShTyQUQCpKwQyupAu5IGMAkhdIZDRhXQhD2QUQOoKgYwupAt5no6pSjMaQ3xDAAAAAElFTkSuQmCC">
+                <div style="margin-top: -10px;font-size:11px;">
+                    <div>BELAN-2</div>
+                    <div>MRP. Rs 65.00</div>
+                    <div>JPW Price Rs. 50.00</div>
+                </div>
+                <div class="iat">(Incl. of all taxes)</div>
+                <span class="price_code">IX.XX</span>
+            </div>
+        <div class="clear"></div>
+        
+            <div class="barcode">
+                <div style="font-size:11px;">Jarurat</div>
+                <img id="barcode_16" data="J5420" class="barcode_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAAAjCAYAAACAY7T5AAAAAXNSR0IArs4c6QAAATFJREFUaEPtmOEOg0AIg/X9H3rLxTEbBhvGhLDk258ZxQNbekr3jd8YBPYxlVDIBhmDmgAyIGMQAoNKQRmQMQiBQaWgDMgYhMCgUlDGn5LxeNW9CFzHRqQe26PZOX+PXdcm8LErxnIoVP6c1qF5tAZba/37mrWW6Jp/zmxdWztaL6orpf+KMiDjgPEb8dpI2jwlnEtBLyohAzLeqmabkg0OZaAMlBG98VEGykAZKOOcdfwXJ5+2wSDI0CegMIGf+4ephaHvx1QcNU0Gnp+wM6tHbRbsEKdQvCmxSaKXnPdmfDdmpiJGYWolfu6LuLYHJt55bnVtC3wRcgeBK67tnTzcW0AAMgogdYVARhfShTyQUQCpKwQyupAu5IGMAkhdIZDRhXQhD2QUQOoKgYwupAt5no6pSjMaQ3xDAAAAAElFTkSuQmCC">
+                <div style="margin-top: -10px;font-size:11px;">
+                    <div>BELAN-2</div>
+                    <div>MRP. Rs 65.00</div>
+                    <div>JPW Price Rs. 50.00</div>
+                </div>
+                <div class="iat">(Incl. of all taxes)</div>
+                <span class="price_code">IX.XX</span>
+            </div>
+        
+        
+            <div class="barcode">
+                <div style="font-size:11px;">Jarurat</div>
+                <img id="barcode_17" data="J5420" class="barcode_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAAAjCAYAAACAY7T5AAAAAXNSR0IArs4c6QAAATFJREFUaEPtmOEOg0AIg/X9H3rLxTEbBhvGhLDk258ZxQNbekr3jd8YBPYxlVDIBhmDmgAyIGMQAoNKQRmQMQiBQaWgDMgYhMCgUlDGn5LxeNW9CFzHRqQe26PZOX+PXdcm8LErxnIoVP6c1qF5tAZba/37mrWW6Jp/zmxdWztaL6orpf+KMiDjgPEb8dpI2jwlnEtBLyohAzLeqmabkg0OZaAMlBG98VEGykAZKOOcdfwXJ5+2wSDI0CegMIGf+4ephaHvx1QcNU0Gnp+wM6tHbRbsEKdQvCmxSaKXnPdmfDdmpiJGYWolfu6LuLYHJt55bnVtC3wRcgeBK67tnTzcW0AAMgogdYVARhfShTyQUQCpKwQyupAu5IGMAkhdIZDRhXQhD2QUQOoKgYwupAt5no6pSjMaQ3xDAAAAAElFTkSuQmCC">
+                <div style="margin-top: -10px;font-size:11px;">
+                    <div>BELAN-2</div>
+                    <div>MRP. Rs 65.00</div>
+                    <div>JPW Price Rs. 50.00</div>
+                </div>
+                <div class="iat">(Incl. of all taxes)</div>
+                <span class="price_code">IX.XX</span>
+            </div>
+        <div class="clear"></div>
+        
+        </div>
+    <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+    <script>
+    jQuery(document).bind("keyup keydown", function(e){
+        if(e.ctrlKey && e.keyCode == 80){
+            window.print();
+            return false;
+        }
+    });
+    $(document).ready(function(){
+        $(".barcode_img").each(function(){
+            JsBarcode(this, $(this).attr("data"), {
+              width:1,
+              height:'15',
+              background: "transparent", 
+              displayValue: false
+            });
+        }).promise().done( function(){ 
+            setTimeout(function() {
+                window.print(); 
+            }, 500);
+        
+        } );
+        
+    });
+    </script>
+    </body>

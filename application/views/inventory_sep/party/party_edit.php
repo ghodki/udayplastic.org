@@ -1,0 +1,296 @@
+<div class="content-wrapper">
+	<!-- Content Header (Page header) -->
+	<div class="content-header">
+		<div class="container-fluid">
+			<div class="row" style="margin-top:65px;">
+				<div class="col-lg-12">
+					<div class="card mb-30">
+						<div class="card-body">
+							<div class="card-header row">
+								<div class="col-md-6">
+									<h5>Add Ladger</h5>
+								</div>
+								<div class="col-md-6">
+									<a href="<?= base_url() ?>party" class="btn btn-info float-right">See Party </a>
+								</div>
+							</div>
+
+							<form action="<?= base_url() ?>party/update" method="post">
+								<div class="row">
+									<input type="hidden" name="id" value="<?= $party->id ?>">
+									<div class="form-group col-sm-3">
+										<?php
+										$tax = $this->user_model->getResult('accounting_group');
+										// echo '<pre>';
+										// print_r($tax);
+										// die;
+										?>
+										<label class="control-label" for="group">Accounting Group: <span class="text-danger">*</span></label>
+										<select id="group" name="group" class="form-control" required>
+											<option value="">-Select-</option>
+											<option value="<?= $party->group_head ?>" <?= set_value('group', $party->group_head) == $party->group_head ? 'selected' : ''; ?>><?= get_title('accounting_group', ['id' => $party->group_head], 'name'); ?></option>
+
+											<?php
+
+											if ($role == 1) {
+												if (isset($tax) && !empty($tax)) {
+													foreach ($tax as $units) {
+											?>
+														<option value="<?= $units->id ?>" <?= set_value('group', $party->group_head) == $units->id ? 'selected' : ''; ?>><?= $units->name; ?></option>
+
+														<?php
+													}
+												}
+											} else {
+												if (isset($tax) && !empty($tax)) {
+													foreach ($tax as $units) {
+
+														$user_id = $this->session->userdata('user_id');
+														$comp_id = $this->session->userdata('comp_id');
+
+														$where = ['user_id' => $user_id, 'comp_id' => $comp_id, 'bill_id' => $units->id];
+														$resu = $this->user_model->getRow('accountant_status', $where);
+														// $this->session->userdata('user_id');
+														if (isset($resu) && !empty($resu)) {
+															if ($resu->status == 1) {
+														?>
+																<option value="<?= $units->id ?>" <?= set_value('group', $units->id) == $units->id ? 'selected' : ''; ?>><?= get_title('accounting_group', ['id' => $units->id], 'name'); ?></option>
+
+															<?php
+															}
+														} else {
+															?>
+															<option value="<?= $units->id ?>" <?= set_value('group') == $units->id ? 'selected' : ''; ?>><?= get_title('accounting_group', ['id' => $units->id], 'name'); ?></option>
+
+
+											<?php
+														}
+													}
+												}
+											}
+
+											?>
+
+										</select>
+									</div>
+
+									<div class="form-group col-sm-3">
+										<label class="control-label" for="name">Name<span class="text-danger">*</span></label>
+										<input autocomplete="off" type="text" name="name" id="name" value="<?= set_value('name', $party->name) ?>" placeholder="Name" class="form-control textOnly" required="">
+										<span class="col-sm-4 control-label">
+											<?php echo form_error('name'); ?>
+
+										</span>
+									</div>
+
+									<div class="form-group col-sm-3">
+										<label class="control-label" for="contact">Contact<span class="text-danger"></span></label>
+                                                                                <input autocomplete="off" type="tel" name="contact" id="contact" value="<?= set_value('contact', $party->contact) ?>" placeholder="Contact" onkeypress="return IsNumeric(event);" maxlength="10" minlength="10" class="form-control" required="" />
+										<span class="col-sm-4 control-label">
+											<?php echo form_error('contact'); ?>
+
+										</span>
+									</div>
+
+									<div class="form-group col-sm-3">
+										<label class="control-label" for="email">Email<span class="text-danger"></span></label>
+										<input autocomplete="off" type="email" name="email" id="email" value="<?= set_value('email', $party->email) ?>" placeholder="Email" class="form-control">
+										<span class="col-sm-4 control-label">
+											<?php echo form_error('email'); ?>
+
+										</span>
+									</div>
+									<div class="form-group col-sm-3">
+										<label class="control-label" for="address_1">Address<span class="text-danger"></span></label>
+										<input autocomplete="off" type="text" name="address_1" id="address_1" value="<?= set_value('address_1', $party->address_1) ?>" placeholder="Address" class="form-control">
+										<span class="col-sm-4 control-label">
+											<?php echo form_error('address_1'); ?>
+
+										</span>
+									</div>
+
+									<div class="form-group col-sm-3">
+										<label class="control-label" for="state">state <span class="text-danger">*</span></label>
+										<select name="state" id="state" class="form-control">
+											<?php
+											$where = ['id' => $party->state];
+											$acgroup = $this->user_model->getRow('state_list', $where);
+											if ($acgroup) {
+												$name = $acgroup->state;
+											}
+											?>
+											<option value="<?= $party->state ?>" <?= set_value('state') == $party->state ? 'selected' : ''; ?>><?= $name; ?></option>
+
+											<?php
+											$acgroup = $this->user_model->getResult('state_list');
+											if ($acgroup) {
+												foreach ($acgroup as $row) {
+
+											?>
+													<option value="<?= $row->id ?>" data-id="<?= $row->code ?>" data-state="<?= $row->state ?>" <?= set_value('state') == $row->id ? 'selected' : ''; ?>><?= $row->state; ?></option>
+
+													<!-- <option value="<?= $ag->id; ?>"><?= $ag->state; ?></option> -->
+											<?php
+												}
+											}
+
+											?>
+
+										</select>
+									</div>
+									<div class="form-group col-sm-3">
+										<label class="control-label" for="state_code">Code</label>
+										<input autocomplete="off" type="text" readonly="" name="state_code" id="state_code" value="<?= set_value('code', $party->state_code) ?>" placeholder="Code" class="form-control" required="">
+									</div>
+
+								
+									<div class="form-group col-sm-3">
+										<label class="control-label" for="state">City <span class="text-danger"></span></label>
+										<input autocomplete="off" type="text" name="city" id="city" tabindex="7" placeholder="City Name" value="<?= get_title('districts',['id'=>$party->city],'name') ?>" class="form-control">
+
+
+									</div>
+									<!--<div class="form-group col-sm-3">-->
+									<!--<label class="control-label" for="tehsils">Tehsils</label>   -->
+									<!--   <select name="tehsils" id="tahsil_id" class="form-control searchselect"  data-live-search="true">-->
+									<!--      <option value="">-Select-</option>           -->
+									<!--   </select>-->
+									<!--</div>-->
+									<!--<div class="form-group col-sm-3">-->
+									<!--<label class="control-label" for="blocks">Blocks</label>-->
+									<!--   <select name="blocks" id="block" class="form-control searchselect"  data-live-search="true">-->
+									<!--      <option value="">-Select-</option>           -->
+									<!--   </select>-->
+									<!--</div>-->
+
+									<div class="form-group col-sm-3">
+										<label class="control-label" for="pin">Pin Code</label>
+										<input autocomplete="off" type="text" name="pin" id="pin" placeholder="Pin Code" value="<?= set_value('pin', $party->pin) ?>" onkeypress="return IsNumeric(event);" maxlength="6" minlength="6" class="form-control">
+										<span class="col-sm-4 control-label">
+											<?php echo form_error('pin'); ?>
+
+										</span>
+									</div>
+
+									<div class="form-group col-sm-3">
+										<label class="control-label" for="pan">Pan No</label>
+										<input autocomplete="off" type="text" name="pan" id="pan" placeholder="Pan No" value="<?= set_value('pan', $party->pan) ?>" class="form-control toUpper" maxlength="10">
+										<span class="col-sm-4 control-label">
+											<?php echo form_error('pan'); ?>
+
+										</span>
+									</div>
+									<div class="form-group col-sm-3">
+										<label class="control-label" for="credit_limit">Credit</label>
+										<input autocomplete="off" type="text" name="credit_limit" id="credit_limit" placeholder="Credit Limit" value="<?= set_value('credit_limit', $party->credit_limit) ?>" onkeypress="return IsNumeric(event);" class="form-control" maxlength="20">
+									</div>
+									<!-- <div class="form-group col-sm-3">
+										<label class="control-label" for="gstType">GST Type</label>
+										<select name="gstType" id="gstType" class="form-control">
+											<option value="<?= $party->gstType ?>"><?= $party->gstType ?></option>
+											<option value="Regular">Regular</option>
+											<option value="Composite">Composite</option>
+											<option value="N/A">N/A</option>
+										</select>
+									</div> -->
+									<div class="form-group col-sm-3">
+										<label class="control-label" for="gstType">GST Type</label>
+										<select name="gstType" id="gstType" class="form-control">
+											<!-- <option value=""></option> -->
+										 <option value="Regular" <?= $party->gstType == 'Regular' ? 'selected' : ''; ?>>Regular</option>
+                    <option value="Composite" <?= $party->gstType == 'Composite' ? 'selected' : ''; ?>>Composite</option>
+                    <option value="N/A" <?= $party->gstType == 'N/A' ? 'selected' : ''; ?>>N/A</option>
+										</select>
+									</div>
+									<div class="form-group col-sm-3" id="gstTypeVal">
+										<label class="control-label" for="gst">GST No</label>
+										<input autocomplete="off" type="text" name="gst" id="gst" placeholder="GST No" value="<?= $party->gst; ?>" class="form-control" maxlength="15">
+									</div>
+									<div class="form-group col-sm-3 ">
+										<label class="control-label" for="opening_balance">Opening Balance</label>
+										<input autocomplete="off" type="text" name="opening_balance" id="opening_balance" placeholder="Opening Balance" value="<?= $party->opening_balance ?>" class="form-control">
+									</div>
+									<div class="form-group col-sm-3">
+										<label class="control-label" for="opBalnceType">Type</label>
+										<select name="opBalnceType" id="opBalnceType" class="form-control">
+											<!-- <option value="">-Select-</option> -->
+										 <option value="CR" <?= $party->opBalnceType == 'CR' ? 'selected' : ''; ?>>CR</option>
+                    <option value="DR" <?= $party->opBalnceType == 'DR' ? 'selected' : ''; ?>>DR</option>
+										</select>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col-sm-12 col-md-12">
+										<label class="control-label" for="remark">Remark</label>
+										<input autocomplete="off" height="100px;" type="text" name="remark" id="remark" tabindex="16" placeholder="Remark" value="<?= $party->remark; ?>" class="form-control">
+									</div>
+								</div>
+
+								<!-- <div class="row">
+         <div class="col-12 bank_field">
+          <h5>Bank Details</h5>
+          </div>
+      </div>
+<div class="row">
+   <div class="form-group col-sm-3 bank_field">
+   <label class="control-label" for="bank_account_name">Bank Account Name</label>
+      <input autocomplete="off" type="text" name="bank_account_name" id="bank_account_name" placeholder="Bank Account Name" value="" class="form-control" >
+   </div>
+   <div class="form-group col-sm-3 bank_field">
+   <label class="control-label" for="bank_account_no">Bank Account Nunber</label>
+      <input autocomplete="off" type="text" name="bank_account_no" id="bank_account_no" placeholder="Enter Account Nunber" value="" class="form-control" >
+   </div>
+   <div class="form-group col-sm-3 bank_field">
+   <label class="control-label" for="bank_name">Bank Name</label>
+      <input autocomplete="off" type="text" name="bank_name" id="bank_name" placeholder="Bank Name" value="" class="form-control" >
+   </div>
+   <div class="form-group col-sm-3 bank_field">
+   <label class="control-label" for="ifsc">IFSC</label>
+      <input autocomplete="off" type="text" name="ifsc" id="ifsc" placeholder="Enter IFSC" value="" class="form-control" >
+   </div>
+   <div class="form-group col-sm-3 bank_field">
+   <label class="control-label" for="bank_address">Bank Address</label>
+      <input autocomplete="off" type="text" name="bank_address" id="bank_address" placeholder="Enter Bank Address" value="" class="form-control" >
+   </div>
+   <div class="form-group col-sm-3 bank_field">
+   <label class="control-label" for="branch_name">Branch Name</label>
+      <input autocomplete="off" type="text" name="branch_name" id="branch_name" placeholder="Branch Name" value="" class="form-control" >
+   </div>
+   <div class="form-group col-sm-3 bank_field">
+   <label class="control-label" for="current_balance">Current Balance</label>
+      <input autocomplete="off" type="text" name="current_balance" id="current_balance" placeholder="Current Balance" value="" class="form-control" >
+   </div>
+</div> -->
+
+								<div class="row">
+									<div class="form-group ml-auto pr-5">
+										<input autocomplete="off" type="submit" class="btn btn-primary fr" value="Update">
+									</div>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+				<script>
+					$(document).ready(function() {
+						// $('.searchselect').select2();
+
+						$('#gstType').change(function() {
+							if ($(this).find(':selected').val() == 'Regular' || $(this).find(':selected').val() == 'Composite') {
+								$('#gstTypeVal').show();
+								$('#gst').attr('required', true);
+								$('#gst').val(<?= $party->gst ?>);
+
+							} else {
+								$('#gstTypeVal').hide();
+								$('#gst').attr('required', false);
+								$('#gst').val('');
+							}
+						});
+						$('#state').change(function() {
+							var code = $(this).find(':selected').data('id');
+							$('#state_code').val(code);
+						});
+					});
+				</script>

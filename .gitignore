@@ -1,0 +1,12 @@
+/vendor/
+/system_backup_3.1.11/
+/_php83_*.php
+/_fix_php83_patterns.php
+/_clean_session_checks.php
+/application/cache/*
+!application/cache/index.html
+/application/logs/*
+!application/logs/index.html
+.error_log
+error_log
+ip.txt
