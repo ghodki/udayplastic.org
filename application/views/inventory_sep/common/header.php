@@ -176,9 +176,10 @@
                                 $this->db->select('invoiceDate');
                                 $this->db->order_by('invoiceDate', 'ASC');
                                 $InvoiceFrom = $this->db->get($SalesEstimatesFromQuery)->row();
+                                $DeliveryFromDate = (!empty($InvoiceFrom) && !empty($InvoiceFrom->invoiceDate)) ? $InvoiceFrom->invoiceDate : date('Y-m-d');
                                 $SaleEstimateDeliveryNumRows = ($this->db->select('id')->where($DeliveryWhere)->get('sales')->num_rows() + $this->db->select('id')->where($DeliveryWhere)->get('estimates')->num_rows());
                             ?>
-                            <a href="<?= base_url(); ?>Reports/SaleDeliveryReport?estimate=true&PartyId=All&SalesmanId=All&fromDate=<?= $InvoiceFrom->invoiceDate; ?>&toDate=<?= date('Y-m-d'); ?>&Delivery=0&Payment=All" class="text-white button" title="Pending Delivery">
+                            <a href="<?= base_url(); ?>Reports/SaleDeliveryReport?estimate=true&PartyId=All&SalesmanId=All&fromDate=<?= $DeliveryFromDate; ?>&toDate=<?= date('Y-m-d'); ?>&Delivery=0&Payment=All" class="text-white button" title="Pending Delivery">
                                 <i class="fa fa-bus text-white <?= $SaleEstimateDeliveryNumRows ? 'notification' : ''; ?>" style="font-size: 20px;"></i>
                                 <span class="notification_badge">
                                     <?= $SaleEstimateDeliveryNumRows; ?>
@@ -192,14 +193,16 @@
                                 $purchaseRequestWhere = ['status' => 1, 'PurchaseRequest' => 1, 'financial_year' => $this->session->userdata('financial_year')];
                                 $partyWhere = ['comp_id' => $this->session->userdata('comp_id'),  'status' => 1];
                                 
-                                if ($branchInfo->branchDivision == 'Y') {
-                                        $mainBranchInfo = $this->db->select('Id, BranchName, BranchUserId')->where(['Id' => $branchInfo->mainBranchId, 'CompId' => $this->session->userdata('comp_id'), 'IsDeleted' => 1])->get('companybranch')->row();                                        
-                                        $partyWhere['user_id'] = $mainBranchInfo->BranchUserId;
-                                        $partyWhere['CompanyBranchId'] = $mainBranchInfo->Id;
-                                        $partyWhere['subBranchId'] = $this->session->userdata('CompBranchId');
-                                        $purchaseRequestWhere['user_id'] = $mainBranchInfo->BranchUserId;
-                                        $purchaseRequestWhere['CompanyBranchId'] = $mainBranchInfo->Id;
-                                } elseif ($branchInfo->branchDivision == 'N') {
+                                if (!empty($branchInfo) && $branchInfo->branchDivision == 'Y') {
+                                        $mainBranchInfo = $this->db->select('Id, BranchName, BranchUserId')->where(['Id' => $branchInfo->mainBranchId, 'CompId' => $this->session->userdata('comp_id'), 'IsDeleted' => 1])->get('companybranch')->row();
+                                        if (!empty($mainBranchInfo)) {
+                                            $partyWhere['user_id'] = $mainBranchInfo->BranchUserId;
+                                            $partyWhere['CompanyBranchId'] = $mainBranchInfo->Id;
+                                            $partyWhere['subBranchId'] = $this->session->userdata('CompBranchId');
+                                            $purchaseRequestWhere['user_id'] = $mainBranchInfo->BranchUserId;
+                                            $purchaseRequestWhere['CompanyBranchId'] = $mainBranchInfo->Id;
+                                        }
+                                } elseif (!empty($branchInfo) && $branchInfo->branchDivision == 'N') {
                                         $partyWhere['user_id'] = $branchInfo->UserId;
                                         $partyWhere['CompanyBranchId'] = $this->session->userdata('CompBranchId');
                                         $purchaseRequestWhere['user_id'] = $branchInfo->UserId;

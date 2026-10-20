@@ -556,20 +556,20 @@
                                 </thead>
                                 <tbody>
                                     <?php
+                                        $Total = 0;
+                                        $Paid = 0;
+                                        $Balance = 0;
                                         if (isset($SalesTotalPaidBalance) && !empty($SalesTotalPaidBalance)) {
-                                            $Total = 0;
-                                            $Paid = 0;
-                                            $Balance = 0;
                                             foreach ($SalesTotalPaidBalance as $key => $InfoData) {
-                                                $Total += $InfoData->total;
-                                                $Paid += $InfoData->paid_amount;
-                                                $Balance += ($InfoData->total - $InfoData->paid_amount);
+                                                $Total += (float) ($InfoData->total ?? 0);
+                                                $Paid += (float) ($InfoData->paid_amount ?? 0);
+                                                $Balance += ((float) ($InfoData->total ?? 0) - (float) ($InfoData->paid_amount ?? 0));
                                     ?>
                                     <tr>
                                         <td><?= $InfoData->month_name; ?></td>
-                                        <td><i class="fa fa-inr"></i> <?= indianMoneyFormat($InfoData->total); ?></td>
-                                        <td><i class="fa fa-inr"></i> <?= indianMoneyFormat($InfoData->paid_amount); ?></td>
-                                        <td><i class="fa fa-inr"></i> <?= indianMoneyFormat(($InfoData->total - $InfoData->paid_amount)); ?></td>
+                                        <td><i class="fa fa-inr"></i> <?= indianMoneyFormat($InfoData->total ?? 0); ?></td>
+                                        <td><i class="fa fa-inr"></i> <?= indianMoneyFormat($InfoData->paid_amount ?? 0); ?></td>
+                                        <td><i class="fa fa-inr"></i> <?= indianMoneyFormat(((float) ($InfoData->total ?? 0) - (float) ($InfoData->paid_amount ?? 0))); ?></td>
                                         <td>
                                             <a href="<?= base_url(); ?>Reports/SaleBalanceReport" title="Balance Report">
                                                 <i class="fa fa-eye"></i>
